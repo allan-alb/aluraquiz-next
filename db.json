@@ -1,0 +1,57 @@
+{
+  "bg": "http://www.filmbuffonline.com/FBOLNewsreel/wordpress/wp-content/uploads/2015/06/marvel_comics_wallpaper_2014.jpg",
+  "title": "Quiz Marvel®",
+  "description": "Teste os seus conhecimentos sobre os personagens da Marvel®",
+  "questions": [
+    {
+      "image": "https://cdn.wallpapersafari.com/72/23/2ryLoi.jpg",
+      "title": "Qual destas não é uma habilidade do DeadPool?",
+      "description": "Essa é para aquecer",
+      "answer": 2,
+      "alternatives": [
+        "domínio de artes marciais",
+        "fator de cura",
+        "supervelocidade",
+        "resistência a drogas e toxinas"
+      ]
+    },
+    {
+      "image": "https://tvcinemaemusica.files.wordpress.com/2010/05/mandarin.jpg",
+      "title": "O Mandarin é um inimigo conhecido de qual herói da Marvel?",
+      "description": "Dica: Sua fonte primária de poder vem dos anéis que ele utiliza",
+      "answer": 1,
+      "alternatives": [
+        "Homem-aranha",
+        "Homem de Ferro",
+        "Hulk",
+        "Capitão América"
+      ]
+    },
+    {
+      "image": "http://getwallpapers.com/wallpaper/full/7/9/7/205158.jpg",
+      "title": "Qual é o nome verdadeiro do Carnificina?",
+      "description": "O psicopata inimigo do Homem Aranha e do Venom já era um psicopata antes da simbiose",
+      "answer": 3,
+      "alternatives": [
+        "Kurt Wagner",
+        "Otto Octavius",
+        "Quentin Beck",
+        "Cletus Kassady"
+      ]
+    }
+  ],
+  "external": [
+    ""
+  ],
+  "theme": {
+    "colors": {
+      "primary": "#c62828",
+      "secondary": "#82b1ff",
+      "mainBg": "#5b7bb2",
+      "contrastText": "#FFFFFF",
+      "wrong": "#8a1c1c",
+      "success": "#9bc0ff"
+    },
+    "borderRadius": "4px"
+  }
+}
