@@ -5,12 +5,6 @@ import QuizBackground from '../src/components/QuizBackground';
 import GitHubCorner from '../src/components/GitHubCorner';
 import Footer from '../src/components/Footer';
 
-// const BackgroundImage = styled.div`
-//   background-image: url(${db.bg});
-//   flex: 1;
-//   background-size: contain;
-//   background-position: center;
-// `;
 
 const QuizContainer = styled.div`
   width: 100%;
@@ -23,6 +17,19 @@ const QuizContainer = styled.div`
   }
 `;
 
+const Button = styled.button`
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: ${db.theme.colors.secondary};
+  font-size: 16px;
+  font-weight: bold;
+  color: ${db.theme.colors.contrastText};
+  cursor: pointer;
+`;
+
 
 export default function Home() {
   return (
@@ -33,17 +40,25 @@ export default function Home() {
             <h1>Quiz Marvel</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>Lorem ipsum dolor sit amet...</p>
+            <p>Que tal testar seus conhecimentos sobre os personagens da Marvel?</p>
           </Widget.Content>
         </Widget>
 
         <Widget>
           <Widget.Content>
-            <h1>Quizes da galera</h1>
-
-            <p>Lorem ipsum dolor sit amet...</p>
+            <p>
+              Hoje considerada a maior editora de histórias em quadrinhos do mundo, com seu conteúdo expandido também
+              para a televisão, a Internet e o cinema, conta com diversos personagens bem conhecidos como: Homem-Aranha,
+              Homem-Formiga, Capitão América, Capitã Marvel, Vespa, Demolidor, Deadpool, Justiceiro, Homem de Ferro,
+              entre muitos outros.
+            </p>
+            <p>
+              O quanto você conhece dos heróis e vilões desse universo?
+            </p>
+            <Button>
+              Bora para o Quiz!
+            </Button>
           </Widget.Content>
-
         </Widget>
         <Footer />
       </QuizContainer>

@@ -46,11 +46,11 @@
   "theme": {
     "colors": {
       "primary": "#c62828",
-      "secondary": "#82b1ff",
-      "mainBg": "#5b7bb2",
+      "secondary": "#448aff",
+      "mainBg": "#2f60b2",
       "contrastText": "#FFFFFF",
       "wrong": "#8a1c1c",
-      "success": "#9bc0ff"
+      "success": "#69a1ff"
     },
     "borderRadius": "4px"
   }
