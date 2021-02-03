@@ -4,9 +4,9 @@
   "description": "Teste os seus conhecimentos sobre os personagens da Marvel®",
   "questions": [
     {
-      "image": "https://cdn.wallpapersafari.com/72/23/2ryLoi.jpg",
+      "image": "https://4.bp.blogspot.com/-Bp1mm6Ls9TY/XEcuRWDzJ4I/AAAAAAAABEo/swo_Lr8Oc4UWtx0al99KWnp4xjcWotv_ACLcBGAs/s640/Deadpool-2.jpg",
       "title": "Qual destas não é uma habilidade do DeadPool?",
-      "description": "Essa é para aquecer",
+      "description": "Chimichanga!",
       "answer": 2,
       "alternatives": [
         "domínio de artes marciais",
@@ -38,6 +38,54 @@
         "Quentin Beck",
         "Cletus Kassady"
       ]
+    },
+    {
+      "image": "http://www.feedyournerd.com/uploads/2/4/0/4/24044140/6144548_orig.jpg",
+      "title": "Qual herói foi o primeiro a aparecer nas histórias em quadrinhos da Marvel?",
+      "description": "Marvel Comics #1 foi lançada em outubro de 1939 e apresentou este herói",
+      "answer": 1,
+      "alternatives": [
+        "Homem-aranha",
+        "Tocha Humana",
+        "Capitão América",
+        "Hulk"
+      ]
+    },
+    {
+      "image": "https://i0.wp.com/www.epicheroes.com/wp-content/uploads/2018/07/marvel-wallpaper-hd-captain-marvel.jpg",
+      "title": "A Capitã Marvel (Carol Danvers) é uma híbrida de quais espécies?",
+      "description": "Também conhecida como Ms. Marvel, é uma das mais poderosas do Universo Marvel",
+      "answer": 3,
+      "alternatives": [
+        "Kree e Skrull",
+        "Skrull e Humano",
+        "Humano Mutante e Humano",
+        "Humano e Kree"
+      ]
+    },
+    {
+      "image": "https://www.fortressofsolitude.co.za/wp-content/uploads/2017/06/X-Men-Storm-770x385.jpeg",
+      "title": "Ororo Munroe, a Tempestade, já foi casada com um famoso herói do Universo Marvel. Qual?",
+      "description": "Foram namorados de infância, inclusive",
+      "answer": 0,
+      "alternatives": [
+        "Pantera Negra",
+        "Wolverine",
+        "Gavião Arqueiro",
+        "Luke Cage"
+      ]
+    },
+    {
+      "image": "https://fsmedia.imgix.net/cc/91/e5/9c/fd4d/4a00/869c/50e4b9d65cf7/save-like-a-hero.jpeg",
+      "title": "Qual é o super herói mais rico?",
+      "description": "As estimativas variam, estando entre bilhões e trilhões de US$",
+      "answer": 1,
+      "alternatives": [
+        "Homem de Ferro",
+        "Pantera Negra",
+        "Professor Charles Xavier",
+        "Magneto"
+      ]
     }
   ],
   "external": [
@@ -46,11 +94,11 @@
   "theme": {
     "colors": {
       "primary": "#c62828",
-      "secondary": "#448aff",
-      "mainBg": "#2f60b2",
+      "secondary": "#1565c0",
+      "mainBg": "#0e4686",
       "contrastText": "#FFFFFF",
       "wrong": "#8a1c1c",
-      "success": "#69a1ff"
+      "success": "#4383cc"
     },
     "borderRadius": "4px"
   }

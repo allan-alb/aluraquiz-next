@@ -7,6 +7,8 @@ import Widget from '../src/components/Widget';
 import QuizBackground from '../src/components/QuizBackground';
 import GitHubCorner from '../src/components/GitHubCorner';
 import Footer from '../src/components/Footer';
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
 
 const QuizContainer = styled.div`
   width: 100%;
@@ -16,22 +18,6 @@ const QuizContainer = styled.div`
   @media screen and (max-width: 500px) {
     margin: auto;
     padding: 15px;
-  }
-`;
-
-const Button = styled.button`
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  background: ${db.theme.colors.secondary};
-  font-size: 16px;
-  font-weight: bold;
-  color: ${db.theme.colors.contrastText};
-  cursor: pointer;
-  &:disabled {
-    opacity: 0.4;
   }
 `;
 
@@ -56,7 +42,8 @@ export default function Home() {
           <Widget.Content>
             <p>Que tal testar seus conhecimentos sobre os personagens da Marvel?</p>
             <form id="nameform" onSubmit={(e) => submitName(e)}>
-              <input
+              <Input
+                name="nomeDoUsuario"
                 type="text"
                 placeholder="Insira seu nome"
                 value={playerName}
