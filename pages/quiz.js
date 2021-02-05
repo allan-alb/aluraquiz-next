@@ -6,6 +6,7 @@ import db from '../db.json';
 import Widget from '../src/components/Widget';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
+import AlternativesForm from '../src/components/AlternativesForm';
 import Button from '../src/components/Button';
 
 function LoadingWidget() {
@@ -21,10 +22,59 @@ function LoadingWidget() {
   );
 }
 
+function ResultWidget({ name, results }) {
+  return (
+    <Widget>
+      <Widget.Header>
+        <h2>
+          Parabéns!
+        </h2>
+      </Widget.Header>
+      <img
+        src="https://geekreply.com/wp-content/uploads/2017/11/marvelheroesomega.jpg"
+        alt="Heróis Marvel"
+        style={{
+          width: '100%',
+          height: '150px',
+          objectFit: 'cover',
+        }}
+      />
+      <Widget.Content>
+        <h3>
+          {`Muito bem, ${name}!`}
+        </h3>
+        <p>
+          {'Você acertou '}
+          {/* results.reduce((accumulator, currentValue) => (
+            currentValue === true ? accumulator + 1 : accumulator
+          ), 0) */}
+          {results.filter((x) => x).length}
+          {' questões!'}
+        </p>
+        <small>
+          <ul>
+            {results.map((result, index) => (
+              <li key={`result__${result}`}>
+                {`Questão #0${index + 1}: `}
+                {result
+                  ? (<span style={{ color: '#02d810' }}>Acertou</span>)
+                  : (<span style={{ color: 'red' }}>Errou</span>)}
+              </li>
+            ))}
+          </ul>
+        </small>
+      </Widget.Content>
+    </Widget>
+  );
+}
+
 function QuestionWidget({
-  question, totalQuestions, questionIndex, onSubmit,
+  question, totalQuestions, questionIndex, onSubmit, addResult,
 }) {
+  const [selectedAlternative, setSelectedAlternative] = useState(undefined);
+  const [isQuestionSubmitted, setIsQuestionSubmitted] = useState(false);
   const questionId = `question__${questionIndex}`;
+  const isCorrect = selectedAlternative === question.answer;
 
   return (
     <Widget>
@@ -54,25 +104,46 @@ function QuestionWidget({
           {question.description}
         </p>
 
-        <form onSubmit={(e) => {
+        <AlternativesForm onSubmit={(e) => {
           e.preventDefault();
-          onSubmit();
+          setIsQuestionSubmitted(true);
+          setTimeout(() => {
+            addResult(isCorrect);
+            setIsQuestionSubmitted(false);
+            setSelectedAlternative(undefined);
+            onSubmit();
+          }, 2 * 1000);
         }}
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative__${alternativeIndex}`;
+            const alternativeStatus = isQuestionSubmitted && isCorrect ? 'SUCCESS' : 'ERROR';
             return (
-              <Widget.Topic as="label" htmlFor={alternativeId}>
-                <input id={alternativeId} type="radio" name={questionId} />
+              <Widget.Topic
+                as="label"
+                key={alternativeId}
+                htmlFor={alternativeId}
+                data-selected={selectedAlternative === alternativeIndex}
+                data-status={alternativeStatus}
+              >
+                <input
+                  id={alternativeId}
+                  type="radio"
+                  name={questionId}
+                  onChange={() => setSelectedAlternative(alternativeIndex)}
+                  checked={selectedAlternative === alternativeIndex}
+                />
                 {` ${alternative}`}
               </Widget.Topic>
             );
           })}
 
-          <Button type="submit">
+          <Button type="submit" disabled={typeof selectedAlternative === 'undefined'} style={{ marginTop: 20 }}>
             Confirmar
           </Button>
-        </form>
+          {isQuestionSubmitted && (isCorrect ? <p>Você acertou! 😁</p> : <p>Você errou! 😕</p>)}
+
+        </AlternativesForm>
       </Widget.Content>
     </Widget>
   );
@@ -92,6 +163,14 @@ export default function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const questionIndex = currentQuestion;
   const question = db.questions[questionIndex];
+  const [results, setResults] = useState([]);
+
+  function addResult(result) {
+    setResults([
+      ...results,
+      result,
+    ]);
+  }
 
   useEffect(() => {
     setTimeout(() => {
@@ -116,6 +195,7 @@ export default function QuizPage() {
             totalQuestions={totalQuestions}
             questionIndex={questionIndex}
             onSubmit={handleQuizSubmit}
+            addResult={addResult}
           />
         )}
 
@@ -124,30 +204,7 @@ export default function QuizPage() {
         )}
 
         {screenState === screenStates.RESULT && (
-          <Widget>
-            <Widget.Header>
-              <h2>
-                Parabéns!
-              </h2>
-            </Widget.Header>
-            <img
-              src="https://geekreply.com/wp-content/uploads/2017/11/marvelheroesomega.jpg"
-              alt="Heróis Marvel"
-              style={{
-                width: '100%',
-                height: '150px',
-                objectFit: 'cover',
-              }}
-            />
-            <Widget.Content>
-              <h3>
-                {`Muito bem, ${name}!`}
-              </h3>
-              <p>
-                {`Você acertou ${totalQuestions} questões!`}
-              </p>
-            </Widget.Content>
-          </Widget>
+          <ResultWidget name={name} results={results} />
         )}
 
       </QuizContainer>
@@ -160,13 +217,20 @@ QuestionWidget.propTypes = {
     image: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
+    answer: PropTypes.number,
     alternatives: PropTypes.arrayOf(PropTypes.string),
   }),
   totalQuestions: PropTypes.number.isRequired,
   questionIndex: PropTypes.number.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  addResult: PropTypes.func.isRequired,
 };
 
 QuestionWidget.defaultProps = {
   question: null,
+};
+
+ResultWidget.propTypes = {
+  name: PropTypes.string.isRequired,
+  results: PropTypes.arrayOf(PropTypes.bool).isRequired,
 };
