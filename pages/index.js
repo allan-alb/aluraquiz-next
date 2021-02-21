@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 import db from '../db.json';
 import Widget from '../src/components/Widget';
@@ -35,7 +36,16 @@ export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{ delay: 0, duration: 0.5 }}
+          variants={{
+            show: { opacity: 1, y: '0' },
+            hidden: { opacity: 0, y: '100%' },
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Header>
             <h1>Quiz Marvel</h1>
           </Widget.Header>
@@ -53,7 +63,16 @@ export default function Home() {
           </Widget.Content>
         </Widget>
 
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          variants={{
+            show: { opacity: 1 },
+            hidden: { opacity: 0 },
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Content>
             <p>
               Hoje considerada a maior editora de histórias em quadrinhos do mundo, com seu

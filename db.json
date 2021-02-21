@@ -1,5 +1,5 @@
 {
-  "bg": "http://www.filmbuffonline.com/FBOLNewsreel/wordpress/wp-content/uploads/2015/06/marvel_comics_wallpaper_2014.jpg",
+  "bg": "https://www.wired.com/images_blogs/gamelife/2009/07/marvel_character_group-crop.jpg",
   "title": "Quiz Marvel®",
   "description": "Teste os seus conhecimentos sobre os personagens da Marvel®",
   "questions": [
@@ -85,6 +85,42 @@
         "Pantera Negra",
         "Professor Charles Xavier",
         "Magneto"
+      ]
+    },
+    {
+      "image": "https://wallpapercave.com/wp/wp1929237.jpg",
+      "title": "Matt Murdock, o Demolidor, adquiriu seus poderes após um acidente com... ",
+      "description": "O mesmo acidente que o fez perder sua visão, aumentou incrivelmente seus outros sentidos",
+      "answer": 2,
+      "alternatives": [
+        "Areia radioativa",
+        "Uma picada de cobra cega",
+        "Um caminhão contendo material radioativo",
+        "Exposição a raios gama após a detonação de uma bomba"
+      ]
+    },
+    {
+      "image": "https://vignette.wikia.nocookie.net/create-garden/images/5/55/Strange.png/revision/latest?cb=20181024203651&path-prefix=fr",
+      "title": "Qual destes não é um inimigo do Dr. Estranho?",
+      "description": "O Mago Supremo precisa enfrentar muitos desafios para proteger a Terra contra ameaças mágicas e místicas",
+      "answer": 3,
+      "alternatives": [
+        "Baron Mordo",
+        "Dormammu",
+        "Nightmare",
+        "Fin Fang Foom"
+      ]
+    },
+    {
+      "image": "http://posterposse.com/wp-content/uploads/2016/04/Civil-War.jpg",
+      "title": "Qual destes super heróis se alia ao Homem de Ferro na Guerra Civil?",
+      "description": "O lado do Homem de Ferro apoia a medida do governo de ter maior controle sobre os super heróis, registrando e regulando suas atividades",
+      "answer": 0,
+      "alternatives": [
+        "Vespa",
+        "Luke Cage",
+        "Colossus",
+        "Demolidor"
       ]
     }
   ],

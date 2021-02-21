@@ -23,6 +23,8 @@ function LoadingWidget() {
 }
 
 function ResultWidget({ name, results }) {
+  const router = useRouter();
+
   return (
     <Widget>
       <Widget.Header>
@@ -63,6 +65,8 @@ function ResultWidget({ name, results }) {
             ))}
           </ul>
         </small>
+
+        <Button onClick={() => router.push('/')}>Reiniciar quiz</Button>
       </Widget.Content>
     </Widget>
   );
